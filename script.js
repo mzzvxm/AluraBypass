@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Alura Bypass
-// @version      2.0
+// @version      2.1
 // @description  Automatiza tarefas nos cursos da Alura
 // @match        *://cursos.alura.com.br/course/*
 // @grant        none
@@ -90,7 +90,7 @@
           <div class="creator-section">
             <div class="creator-label">Desenvolvido por</div>
             <div class="creator-name">@mzzvxm</div>
-            <div class="version-badge">v2.0</div>
+            <div class="version-badge">v2.1</div>
           </div>
 
           <div class="particles-container">
@@ -487,11 +487,14 @@
           }
         })
 
-      // Marca alternativa correta (radio)
-      document.querySelectorAll(".alternativeList-item[data-correct='true'] input[type='radio']").forEach((radio) => {
-        radio.click()
-        this.showActionFeedback("🎯 Resposta selecionada")
-      })
+      // --- CORREÇÃO ---
+      // Para questões de rádio, seleciona a primeira opção, pois a correta não é informada no HTML inicial.
+      const firstRadioButton = document.querySelector(".alternativeList-item input[type='radio']")
+      if (firstRadioButton && !firstRadioButton.checked) {
+        firstRadioButton.click()
+        this.showActionFeedback("🎯 Resposta selecionada (1ª opção)")
+      }
+      // --- FIM DA CORREÇÃO ---
 
       // Envia tarefa (caso haja botão de envio)
       const submitButton = document.querySelector(".task-actions-button")
