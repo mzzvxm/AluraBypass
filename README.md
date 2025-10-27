@@ -52,7 +52,7 @@ Use com **responsabilidade** e **motivação para aprendizado**.
 ## 📌 Script (Exemplo de bookmarklet)
 
 ```javascript
-javascript:fetch("https://raw.githubusercontent.com/mzzvxm/AluraBypass/main/script.js").then(res=>res.text()).then(eval);
+javascript:fetch("https://cdn.jsdelivr.net/gh/mzzvxm/AluraBypass@main/script.js").then(res=>res.text()).then(eval);
 ```
 
 
